@@ -1,0 +1,9 @@
+com\mimota\aware\TestEnvironmentAware.class
+com\mimota\util\SpringBeanUtil.class
+com\mimota\aware\TestBeanPostProcessor.class
+com\mimota\controller\DemoController.class
+com\mimota\dao\DemoDao.class
+com\mimota\dao\Impl\DemoDaoImpl.class
+com\mimota\aware\TestApplicationContextAware.class
+com\mimota\model\DemoEntity.class
+com\mimota\main\Application.class
