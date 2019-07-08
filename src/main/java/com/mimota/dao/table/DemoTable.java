@@ -4,8 +4,6 @@ import com.mimota.model.DemoEntity;
 import com.mimota.util.MongoMorphiaUtil;
 
 import com.mongodb.WriteResult;
-import com.mongodb.bulk.UpdateRequest;
-import com.mongodb.client.result.UpdateResult;
 import org.mongodb.morphia.Datastore;
 
 import org.mongodb.morphia.query.Query;
@@ -13,7 +11,7 @@ import org.mongodb.morphia.query.UpdateOperations;
 import org.mongodb.morphia.query.UpdateResults;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import java.util.List;
 
 
 @Service
@@ -50,6 +48,14 @@ public final class DemoTable {
         WriteResult result = datastore.delete(query);
 
         return result.isUpdateOfExisting();
+    }
+
+    public void batchDelete(Query<DemoEntity> query){
+        datastore.delete(query);
+    }
+
+    public List<DemoEntity> batchSearch(Query<DemoEntity> query){
+        return query.asList();
     }
 
     public Query<DemoEntity> createQuery() {

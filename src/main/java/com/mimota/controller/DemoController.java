@@ -7,12 +7,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/demo")
 public class DemoController {
 
     @Autowired
-    IDemoService demoService;
+    private IDemoService demoService;
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public String create(DemoEntity demoEntity){
@@ -39,6 +41,20 @@ public class DemoController {
     public String delete(String id){
 
         return demoService.deleteDemo(id);
+
+    }
+
+    @RequestMapping("/deleteAll")
+    public String delete(){
+
+        return demoService.deleteAll();
+
+    }
+
+    @RequestMapping("/searchAll")
+    public List<DemoEntity> searchAll(){
+
+        return demoService.searchAll();
 
     }
 

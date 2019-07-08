@@ -6,13 +6,14 @@ import com.mimota.service.demo.IDemoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class DemoServiceImpl implements IDemoService {
 
     @Autowired
-    DemoTable demoTable;
+    private DemoTable demoTable;
 
-    @Override
     public String createDemo(DemoEntity demoEntity) {
         if(demoTable.store(demoEntity)){
             return "ok";
@@ -21,21 +22,29 @@ public class DemoServiceImpl implements IDemoService {
         }
     }
 
-    @Override
     public DemoEntity getDemoById(String id) {
-        DemoEntity demoEntity = demoTable.getById(id);
-        return demoEntity;
+        return demoTable.getById(id);
+
     }
 
-    @Override
     public String updateDemo(DemoEntity demoEntity) {
         demoTable.update(demoEntity);
         return "ok";
     }
 
-    @Override
     public  String deleteDemo(String id) {
         demoTable.deleteById(id);
         return "ok";
+    }
+
+    public String deleteAll() {
+        demoTable.batchDelete(demoTable.createQuery());
+        return "ok";
+    }
+
+    public List<DemoEntity> searchAll() {
+
+        return demoTable.batchSearch(demoTable.createQuery());
+
     }
 }
