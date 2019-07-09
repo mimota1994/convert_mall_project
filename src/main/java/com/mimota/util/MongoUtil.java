@@ -1,5 +1,6 @@
 package com.mimota.util;
 
+import com.mimota.util.common.Database;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientOptions;
 import com.mongodb.MongoClientURI;
@@ -24,7 +25,7 @@ public class MongoUtil {
     private static void mongoInit() {
         MongoClientOptions.Builder builder = MongoClientOptions.builder().connectionsPerHost(150).cursorFinalizerEnabled(true).readPreference(getReadPreference());
 
-        mongoClient = new MongoClient(new MongoClientURI("mongodb://localhost:27017", builder));
+        mongoClient = new MongoClient(new MongoClientURI(Database.Aliyun_MONGO_URL.getUrl(), builder));
     }
 
     // 用于获取database
