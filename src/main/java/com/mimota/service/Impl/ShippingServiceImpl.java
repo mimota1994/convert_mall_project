@@ -1,11 +1,12 @@
 package com.mimota.service.Impl;
 
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 import com.google.common.collect.Maps;
 import com.mimota.dao.table.ShippingTable;
 import com.mimota.pojo.Shipping;
 import com.mimota.service.IShippingService;
+import com.mimota.util.PageUtil;
+import com.mimota.util.common.PageInfo;
+import com.mimota.util.common.Pair;
 import com.mimota.util.common.ServerResponse;
 import org.mongodb.morphia.Key;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,9 +45,8 @@ public class ShippingServiceImpl implements IShippingService {
     }
 
 
-    public ServerResponse update(String userId, Shipping shipping){
-        shipping.setUserId(userId);
-        int rowCount = shippingTable.updateByShipping(shipping);
+    public ServerResponse update(String userId, String shipping, Map<String, String> conditions){
+        int rowCount = shippingTable.updateByShippingIdUserId(userId, shipping, conditions);
         if(rowCount > 0){
             return ServerResponse.createBySuccess("更新地址成功");
         }
@@ -58,15 +58,17 @@ public class ShippingServiceImpl implements IShippingService {
         if(shipping == null){
             return ServerResponse.createByErrorMessage("无法查询到该地址");
         }
-        return ServerResponse.createBySuccess("更新地址成功",shipping);
+        return ServerResponse.createBySuccess(shipping);
     }
 
 
-    public ServerResponse<PageInfo> list(String userId,int pageNum,int pageSize){
-        PageHelper.startPage(pageNum,pageSize);
-        List<Shipping> shippingList = shippingTable.selectByUserId(userId);
-        PageInfo pageInfo = new PageInfo(shippingList);
-        return ServerResponse.createBySuccess(pageInfo);
+    public ServerResponse<PageInfo> list(String userId, int pageNum, int pageSize){
+//        PageHelper.startPage(pageNum,pageSize);
+        final int offset = PageUtil.skip(pageNum, pageSize);
+
+        Pair<Long, List<Shipping>> pair = shippingTable.search(userId, offset, pageSize);
+
+        return ServerResponse.createBySuccess(new PageInfo<List<Shipping>>(pageNum,pageSize,pair.getFirst(), pair.getSecond()));
     }
 
 }

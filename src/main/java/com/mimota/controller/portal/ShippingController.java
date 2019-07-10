@@ -1,25 +1,24 @@
 package com.mimota.controller.portal;
 
-import com.github.pagehelper.PageInfo;
 import com.mimota.pojo.Shipping;
 import com.mimota.pojo.User;
 import com.mimota.service.IShippingService;
 import com.mimota.util.common.Const;
+import com.mimota.util.common.PageInfo;
 import com.mimota.util.common.ResponseCode;
 import com.mimota.util.common.ServerResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.Map;
 
 /**
  * Created by geely
  */
 
-@Controller
+@RestController
 @RequestMapping("/shipping/")
 public class ShippingController {
 
@@ -29,7 +28,6 @@ public class ShippingController {
 
 
     @RequestMapping("add.do")
-    @ResponseBody
     public ServerResponse add(HttpSession session, Shipping shipping){
         User user = (User)session.getAttribute(Const.CURRENT_USER);
         if(user ==null){
@@ -40,7 +38,6 @@ public class ShippingController {
 
 
     @RequestMapping("del.do")
-    @ResponseBody
     public ServerResponse del(HttpSession session,String shippingId){
         User user = (User)session.getAttribute(Const.CURRENT_USER);
         if(user ==null){
@@ -49,19 +46,18 @@ public class ShippingController {
         return iShippingService.del(user.getId(),shippingId);
     }
 
+    //这里需要userId是为了防止某个用户修改不属于他的地址
     @RequestMapping("update.do")
-    @ResponseBody
-    public ServerResponse update(HttpSession session,Shipping shipping){
+    public ServerResponse update(HttpSession session, String shippingId, @RequestBody Map<String, String> conditions){
         User user = (User)session.getAttribute(Const.CURRENT_USER);
         if(user ==null){
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),ResponseCode.NEED_LOGIN.getDesc());
         }
-        return iShippingService.update(user.getId(),shipping);
+        return iShippingService.update(user.getId(),shippingId, conditions);
     }
 
 
     @RequestMapping("select.do")
-    @ResponseBody
     public ServerResponse<Shipping> select(HttpSession session,String shippingId){
         User user = (User)session.getAttribute(Const.CURRENT_USER);
         if(user ==null){
@@ -72,7 +68,6 @@ public class ShippingController {
 
 
     @RequestMapping("list.do")
-    @ResponseBody
     public ServerResponse<PageInfo> list(@RequestParam(value = "pageNum",defaultValue = "1") int pageNum,
                                          @RequestParam(value = "pageSize",defaultValue = "10")int pageSize,
                                          HttpSession session){

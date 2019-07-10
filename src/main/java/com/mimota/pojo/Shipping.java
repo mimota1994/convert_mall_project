@@ -1,8 +1,14 @@
 package com.mimota.pojo;
 
+import org.mongodb.morphia.annotations.Entity;
+import org.mongodb.morphia.annotations.Id;
+
 import java.util.Date;
 
+@Entity(value = "shipping")
 public class Shipping {
+
+    @Id
     private String id;
 
     private String userId;
