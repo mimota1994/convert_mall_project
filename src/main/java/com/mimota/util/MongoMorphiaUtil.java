@@ -4,6 +4,7 @@ import org.mongodb.morphia.Datastore;
 import org.mongodb.morphia.Morphia;
 import org.mongodb.morphia.mapping.Mapper;
 import org.mongodb.morphia.mapping.MapperOptions;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Set;
 
@@ -47,7 +48,8 @@ public class MongoMorphiaUtil
         Morphia morphia = new Morphia(new Mapper(mapperOptions));
 
         morphia.map(classNames);
-
+        BigDecimalConverter bigDecimalConverter = new BigDecimalConverter();
+        morphia.getMapper().getConverters().addConverter(bigDecimalConverter);
         dataStore = morphia.createDatastore(MongoUtil.getMongoClient(), dbName);
         dataStore.ensureIndexes();
 

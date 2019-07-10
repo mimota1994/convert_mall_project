@@ -17,9 +17,6 @@ import org.springframework.util.CollectionUtils;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Created by geely
- */
 @Service("iCategoryService")
 public class CategoryServiceImpl implements ICategoryService {
 

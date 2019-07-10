@@ -7,8 +7,8 @@ import java.math.BigDecimal;
  */
 public class ProductListVo {
 
-    private Integer id;
-    private Integer categoryId;
+    private String id;
+    private String categoryId;
 
     private String name;
     private String subtitle;
@@ -19,19 +19,19 @@ public class ProductListVo {
 
     private String imageHost;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public Integer getCategoryId() {
+    public String getCategoryId() {
         return categoryId;
     }
 
-    public void setCategoryId(Integer categoryId) {
+    public void setCategoryId(String categoryId) {
         this.categoryId = categoryId;
     }
 
