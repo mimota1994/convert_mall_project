@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Class-Path: spring-boot-starter-web-2.0.4.RELEASE.jar junit-4.12.jar s
+ pring-aop-5.0.8.RELEASE.jar spring-expression-5.0.8.RELEASE.jar hamcr
+ est-core-1.3.jar jackson-databind-2.9.9.1.jar jackson-core-2.9.9.jar 
+ snakeyaml-1.19.jar tomcat-embed-websocket-8.5.32.jar jul-to-slf4j-1.7
+ .25.jar spring-web-5.0.8.RELEASE.jar commons-net-3.6.jar listenablefu
+ ture-9999.0-empty-to-avoid-conflict-with-guava.jar javax.annotation-a
+ pi-1.3.2.jar failureaccess-1.0.1.jar spring-boot-starter-2.0.4.RELEAS
+ E.jar jackson-annotations-2.9.0.jar bson-3.8.2.jar joda-time-2.10.3.j
+ ar jsr305-3.0.2.jar slf4j-api-1.7.26.jar spring-context-5.0.8.RELEASE
+ .jar spring-boot-2.0.4.RELEASE.jar hibernate-validator-6.0.11.Final.j
+ ar spring-webmvc-5.0.8.RELEASE.jar checker-qual-2.8.1.jar validation-
+ api-2.0.1.Final.jar tomcat-embed-el-8.5.32.jar tomcat-embed-core-8.5.
+ 32.jar jackson-datatype-jsr310-2.9.6.jar spring-boot-starter-logging-
+ 2.0.4.RELEASE.jar animal-sniffer-annotations-1.17.jar jboss-logging-3
+ .3.2.Final.jar logback-classic-1.2.3.jar commons-lang3-3.9.jar jackso
+ n-module-parameter-names-2.9.6.jar spring-boot-starter-data-mongodb-2
+ .1.6.RELEASE.jar spring-jcl-5.0.8.RELEASE.jar spring-tx-5.1.8.RELEASE
+ .jar spring-boot-starter-tomcat-2.0.4.RELEASE.jar cglib-nodep-2.2.2.j
+ ar proxytoys-1.0.jar spring-boot-autoconfigure-2.0.4.RELEASE.jar mong
+ o-java-driver-3.2.2.jar classmate-1.3.4.jar spring-core-5.0.8.RELEASE
+ .jar spring-boot-starter-json-2.0.4.RELEASE.jar error_prone_annotatio
+ ns-2.3.2.jar log4j-api-2.10.0.jar spring-data-commons-2.1.9.RELEASE.j
+ ar jackson-datatype-jdk8-2.9.6.jar logback-core-1.2.3.jar mongodb-dri
+ ver-core-3.8.2.jar j2objc-annotations-1.3.jar mongodb-driver-3.8.2.ja
+ r log4j-to-slf4j-2.10.0.jar morphia-1.2.1.jar guava-28.0-jre.jar spri
+ ng-data-mongodb-2.1.9.RELEASE.jar spring-beans-5.0.8.RELEASE.jar
+Main-Class: com.mimota.main.Application
+
