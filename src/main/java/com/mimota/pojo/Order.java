@@ -1,16 +1,22 @@
 package com.mimota.pojo;
 
+import org.mongodb.morphia.annotations.Entity;
+import org.mongodb.morphia.annotations.Id;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
+@Entity(value = "order")
 public class Order {
-    private Integer id;
+
+    @Id
+    private String id;
 
     private Long orderNo;
 
-    private Integer userId;
+    private String userId;
 
-    private Integer shippingId;
+    private String shippingId;
 
     private BigDecimal payment;
 
@@ -32,7 +38,7 @@ public class Order {
 
     private Date updateTime;
 
-    public Order(Integer id, Long orderNo, Integer userId, Integer shippingId, BigDecimal payment, Integer paymentType, Integer postage, Integer status, Date paymentTime, Date sendTime, Date endTime, Date closeTime, Date createTime, Date updateTime) {
+    public Order(String id, Long orderNo, String userId, String shippingId, BigDecimal payment, Integer paymentType, Integer postage, Integer status, Date paymentTime, Date sendTime, Date endTime, Date closeTime, Date createTime, Date updateTime) {
         this.id = id;
         this.orderNo = orderNo;
         this.userId = userId;
@@ -53,11 +59,11 @@ public class Order {
         super();
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -69,19 +75,19 @@ public class Order {
         this.orderNo = orderNo;
     }
 
-    public Integer getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
-    public Integer getShippingId() {
+    public String getShippingId() {
         return shippingId;
     }
 
-    public void setShippingId(Integer shippingId) {
+    public void setShippingId(String shippingId) {
         this.shippingId = shippingId;
     }
 

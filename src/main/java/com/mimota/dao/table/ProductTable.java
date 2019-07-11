@@ -6,6 +6,7 @@ import com.mimota.util.MongoMorphiaUtil;
 import com.mimota.util.common.Pair;
 import org.apache.commons.lang3.StringUtils;
 import org.bson.types.ObjectId;
+import org.junit.Test;
 import org.mongodb.morphia.Datastore;
 import org.mongodb.morphia.Key;
 import org.mongodb.morphia.query.Criteria;

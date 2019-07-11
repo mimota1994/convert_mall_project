@@ -1,14 +1,21 @@
 package com.mimota.pojo;
 
+import org.mongodb.morphia.annotations.Entity;
+import org.mongodb.morphia.annotations.Id;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
+
+@Entity(value = "orderItem")
 public class OrderItem {
-    private Integer id;
+
+    @Id
+    private String id;
 
     private Long orderNo;
 
-    private Integer productId;
+    private String productId;
 
     private String productName;
 
@@ -24,9 +31,9 @@ public class OrderItem {
 
     private Date updateTime;
 
-    private Integer userId;
+    private String userId;
 
-    public OrderItem(Integer id, Long orderNo, Integer productId, String productName, String productImage, BigDecimal currentUnitPrice, Integer quantity, BigDecimal totalPrice, Date createTime, Date updateTime, Integer userId) {
+    public OrderItem(String id, Long orderNo, String productId, String productName, String productImage, BigDecimal currentUnitPrice, Integer quantity, BigDecimal totalPrice, Date createTime, Date updateTime, String userId) {
         this.id = id;
         this.orderNo = orderNo;
         this.productId = productId;
@@ -44,11 +51,11 @@ public class OrderItem {
         super();
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -60,11 +67,11 @@ public class OrderItem {
         this.orderNo = orderNo;
     }
 
-    public Integer getProductId() {
+    public String getProductId() {
         return productId;
     }
 
-    public void setProductId(Integer productId) {
+    public void setProductId(String productId) {
         this.productId = productId;
     }
 
@@ -124,11 +131,11 @@ public class OrderItem {
         this.updateTime = updateTime;
     }
 
-    public Integer getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 }

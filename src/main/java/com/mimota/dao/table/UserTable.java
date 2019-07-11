@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableMap;
 import com.mimota.pojo.User;
 import com.mimota.util.MongoMorphiaUtil;
 import org.bson.types.ObjectId;
+import org.junit.Test;
 import org.mongodb.morphia.Datastore;
 import org.mongodb.morphia.Key;
 import org.mongodb.morphia.converters.ObjectIdConverter;
@@ -27,6 +28,15 @@ public class UserTable {
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    @Test
+    public void test(){
+        User user = createQuery().filter("_id", "5d2447d03162d53184f89a5f").get();
+        user.setPhone("12341234");
+        datastore.save(user);
+//        datastore.update(user, datastore.createUpdateOperations(User.class));
+//        System.out.println(user.toString());
     }
 
     public long checkUsername(String username){

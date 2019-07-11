@@ -3,14 +3,12 @@ package com.mimota.vo;
 import java.math.BigDecimal;
 import java.util.Date;
 
-/**
- * Created by geely
- */
+
 public class OrderItemVo {
 
     private Long orderNo;
 
-    private Integer productId;
+    private String productId;
 
     private String productName;
     private String productImage;
@@ -31,11 +29,11 @@ public class OrderItemVo {
         this.orderNo = orderNo;
     }
 
-    public Integer getProductId() {
+    public String getProductId() {
         return productId;
     }
 
-    public void setProductId(Integer productId) {
+    public void setProductId(String productId) {
         this.productId = productId;
     }
 

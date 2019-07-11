@@ -47,6 +47,10 @@ public class ShippingTable {
         return createQuery(userId, shippingId).get();
     }
 
+    public Shipping selectByPrimaryKey(String shippingId){
+        return createQuery().filter("_id", shippingId).get();
+    }
+
     public List<Shipping> selectByUserId(String userId){
         return createQuery(userId).asList();
     }

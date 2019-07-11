@@ -37,7 +37,7 @@ public class OrderVo {
     private List<OrderItemVo> orderItemVoList;
 
     private String imageHost;
-    private Integer shippingId;
+    private String shippingId;
     private String receiverName;
 
     private ShippingVo shippingVo;
@@ -154,11 +154,11 @@ public class OrderVo {
         this.imageHost = imageHost;
     }
 
-    public Integer getShippingId() {
+    public String getShippingId() {
         return shippingId;
     }
 
-    public void setShippingId(Integer shippingId) {
+    public void setShippingId(String shippingId) {
         this.shippingId = shippingId;
     }
 

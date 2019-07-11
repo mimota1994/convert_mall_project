@@ -59,6 +59,14 @@ public class CartTable {
         return createQuery(userId).countAll();
     }
 
+    public List<Cart> selectCheckedCartByUserId(String userId){
+        return createQuery(userId).asList();
+    }
+
+    public void deleteByPrimaryKeys(List<String> ids){
+        datastore.delete(createQuery().filter("_id in", ids));
+    }
+
     private Query<Cart> createQuery(){
         return datastore.createQuery(Cart.class);
     }
