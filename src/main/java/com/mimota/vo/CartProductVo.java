@@ -9,9 +9,9 @@ public class CartProductVo {
 
 //结合了产品和购物车的一个抽象对象
 
-    private Integer id;
-    private Integer userId;
-    private Integer productId;
+    private String id;
+    private String userId;
+    private String productId;
     private Integer quantity;//购物车中此商品的数量
     private String productName;
     private String productSubtitle;
@@ -24,27 +24,27 @@ public class CartProductVo {
 
     private String limitQuantity;//限制数量的一个返回结果
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public Integer getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
-    public Integer getProductId() {
+    public String getProductId() {
         return productId;
     }
 
-    public void setProductId(Integer productId) {
+    public void setProductId(String productId) {
         this.productId = productId;
     }
 
